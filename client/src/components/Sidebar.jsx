@@ -9,10 +9,11 @@ import { navlinks } from "../constants";
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   <div
     className={`w-[48px] h-[48px] rounded-[10px] ${
-      isActive && isActive === name && "bg-[#2c2f32]"
+      isActive && isActive === name && "bg-[#2c2f32] hover:bg-[#2c2f32]"
     } flex justify-center items-center ${
       !disabled && "cursor-pointer"
-    } ${styles}`}
+    } hover:bg-[#2c2f32] transition duration-200 ease-in
+    } ${styles}`} // #4acd8d
     onClick={handleClick}
   >
     {!isActive ? (
@@ -40,7 +41,6 @@ const Sidebar = () => {
       <div className="flex-1 flex flex-col justify-between items-center bg-[#1c1c24] rounded-[20px] w-[76px] py-4 mt-12">
         <div className="flex flex-col justify-center items-center gap-3">
           {/* navlinks는 배열 형태로 만들어졌기 때문에 map 함수 적용이 가능 */}
-
           {navlinks.map((link) => (
             <Tooltip
               key={link.name}
@@ -54,7 +54,10 @@ const Sidebar = () => {
                 textShadow: "0 0 5px black",
               }}
             >
-              <div key={link.name}>
+              <div
+                key={link.name}
+                className="rounded-[10px] transition duration-200 ease-in"
+              >
                 <Icon
                   key={link.name}
                   {...link}

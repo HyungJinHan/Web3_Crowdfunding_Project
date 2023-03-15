@@ -110,6 +110,7 @@ const Navbar = () => {
 
           <div className="flex mx-4">
             <CustomButton
+              address={address}
               btnType="button"
               title={address ? "Create a Campaign" : "Connect"}
               styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
