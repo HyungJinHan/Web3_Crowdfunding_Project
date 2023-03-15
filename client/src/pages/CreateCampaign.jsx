@@ -25,7 +25,11 @@ const CreateCampaign = () => {
 
   const hundred = <span className="text-[#4acd8d]">100%</span>;
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(form);
+  };
 
   return (
     <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
@@ -106,14 +110,25 @@ const CreateCampaign = () => {
               handleFormFieldChange("deadline", e);
             }}
           />
+        </div>
 
-          <div className="flex justify-center items-center mt-[30px]">
-            <CustomButton
-              btnType="submit"
-              title="Submit new campaign"
-              styles="bg-[#1dc071]"
-            />
-          </div>
+        <FormField
+          labelName={"Campaign image"}
+          essential={essential}
+          placeholder="Place image URL of your campaign"
+          inputType="url"
+          value={form.image}
+          handleChange={(e) => {
+            handleFormFieldChange("image", e);
+          }}
+        />
+
+        <div className="flex justify-center items-center mt-[20px]">
+          <CustomButton
+            btnType="submit"
+            title="Submit new campaign"
+            styles="bg-[#1dc071]"
+          />
         </div>
       </form>
     </div>
