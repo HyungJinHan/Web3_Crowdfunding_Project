@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { money } from "../assets";
 import { CustomButton, FormField } from "../components";
 import { checkIfImage } from "../utils";
+import { useStateContext } from "../context";
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ const CreateCampaign = () => {
     <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && "Loading..."}
       <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white">
-          Start a Campaign
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white animate-pulse">
+          Start a Campaign 🚀
         </h1>
       </div>
 
@@ -79,12 +80,15 @@ const CreateCampaign = () => {
         />
 
         <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
-          <img
+          {/* <img
             src={money}
             alt="money_icon"
-            className="w-[40px] h-[40px] object-contain  animate-pulse"
-          />
-          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[30px] animate-pulse my-auto">
+            className="w-[40px] h-[40px] ml-[10px] object-contain animate-pulse"
+          /> */}
+          <div className="ml-[10px] object-contain text-[38px] animate-pulse">
+            💸
+          </div>
+          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[15px] animate-pulse my-auto leading-relaxed">
             You will get {hundred} of the raised amount!
           </h4>
         </div>
