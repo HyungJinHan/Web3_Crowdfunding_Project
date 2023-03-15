@@ -73,7 +73,7 @@ const Navbar = () => {
         />
 
         <div
-          className={`absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary py-4 ${
+          className={`rounded-[10px] absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary pb-4 ${
             !toggleDrawer ? "-translate-y-[100vh]" : "translate-y-0"
           } transition-all duration-700`}
         >
@@ -81,7 +81,7 @@ const Navbar = () => {
             {navlinks.map((link) => (
               <li
                 key={link.name}
-                className={`flex p-4 ${
+                className={`flex p-4 first:rounded-t-[10px] ${
                   isActive === link.name && "bg-[#3a3a43]"
                 }`}
                 onClick={() => {
