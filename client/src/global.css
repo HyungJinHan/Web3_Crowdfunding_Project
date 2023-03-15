@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: none;
+  color: #1dc071;
+}
+
 .linear-gradient {
   background: linear-gradient(
     179.14deg,

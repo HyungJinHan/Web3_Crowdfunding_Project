@@ -5,10 +5,12 @@ import { money } from "../assets";
 import { CustomButton, FormField } from "../components";
 import { checkIfImage } from "../utils";
 import { useStateContext } from "../context";
+import toast, { Toaster } from "react-hot-toast";
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const { createCampaign } = useStateContext();
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -26,14 +28,33 @@ const CreateCampaign = () => {
 
   const hundred = <span className="text-[#4acd8d]">100%</span>;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(form);
+    checkIfImage(form.image, async (exists) => {
+      if (exists) {
+        setIsLoading(true);
+        await createCampaign({
+          ...form,
+          target: ethers.utils.parseUnits(form.target, 18),
+        });
+        setIsLoading(false);
+        navigate("/");
+      } else {
+        toast.error("Provide valid image URL!", {
+          style: {
+            background: "#8c6dfd", // #1dc071
+            color: "white",
+          },
+        });
+        setForm({ ...form, image: "" });
+      }
+    });
   };
 
   return (
     <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+      <Toaster position="top-center" reverseOrder={false} />
       {isLoading && "Loading..."}
       <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white animate-pulse">
