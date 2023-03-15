@@ -68,7 +68,7 @@ const Navbar = () => {
           alt="menu_icon"
           className="w-[34px] h-[34px] object-contain cursor-pointer"
           onClick={() => {
-            setToggleDrawer(!toggleDrawer);
+            setToggleDrawer((prev) => !prev);
           }}
         />
 
