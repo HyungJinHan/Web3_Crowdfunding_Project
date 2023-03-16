@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Tooltip } from "antd";
-
 import { logo, sun } from "../assets";
 import { navlinks } from "../constants";
 // 위의 파일 내용을 통해 이미지와 링크 url을 불러와서 사용
