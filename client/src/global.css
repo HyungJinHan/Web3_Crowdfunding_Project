@@ -5,12 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-  .scaleGreen {
-    @apply hover:bg-[#19814f] transition duration-200 ease-in;
-  }
-
-  .scalePurple {
-    @apply hover:bg-[#6c43ff] transition duration-200 ease-in;
+  .brightness {
+    @apply hover:brightness-75 transition duration-200 ease-in;
   }
 }
 
