@@ -1,4 +1,4 @@
-# Web3 Crowd Funding Site
+# Web3 Crowdfunding Site
 
 <!-- thirdweb 배포 사이트 : https://thirdweb.com/contracts/deploy/QmQ32k765jh3sFNeTLZAURB1MwFNrJnW4kBJEEYzhbvgYq 공격적 버전으로 배포할지, 시장으로 배포할지는 가격 보고 결정하기 -->
 <!-- https://thirdweb.com/goerli/0xDEff216166bF562E6Fea34c5D7fF343E59eAc74e 배포됨 -->
@@ -14,7 +14,7 @@
 
 <br>
 
-### ▲ 이미지 클릭으로 `Crowd Funding` 사이트로 이동 ▲
+### ▲ 이미지 클릭으로 `thirdweb Crowdfunding` 사이트로 이동 ▲
 
 </div>
 
@@ -22,7 +22,7 @@
 
 <div align='center'>
 
-### `React`와 `Vite`를 기반으로 `thirdweb`을 활용한 다양한 캠페인 `Crowd Funding` 사이트입니다.
+### `React`와 `Vite`를 기반으로 `thirdweb`을 활용한 다양한 캠페인 `Crowdfunding` 사이트입니다.
 
 </div>
 
