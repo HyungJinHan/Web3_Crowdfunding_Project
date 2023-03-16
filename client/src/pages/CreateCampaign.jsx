@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 import { money } from "../assets";
-import { CustomButton, FormField } from "../components";
+import { CustomButton, FormField, Loader } from "../components";
 import { checkIfImage } from "../utils";
 import { useStateContext } from "../context";
 import toast, { Toaster } from "react-hot-toast";
@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { createCampaign } = useStateContext();
+  const { createCampaign, address } = useStateContext();
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -54,108 +54,116 @@ const CreateCampaign = () => {
 
   return (
     <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
-      <Toaster position="top-center" reverseOrder={false} />
-      {isLoading && "Loading..."}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white animate-pulse">
-          Start a Campaign 🚀
-        </h1>
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="w-full mt-[65px] flex flex-col gap-[30px]"
-      >
-        <div className="flex flex-wrap gap-[40px]">
-          <FormField
-            labelName={"Your Name"}
-            essential={essential}
-            placeholder="Write your name"
-            inputType="text"
-            value={form.name}
-            handleChange={(e) => {
-              handleFormFieldChange("name", e);
-            }}
-          />
-          <FormField
-            labelName={"Campaign Title"}
-            essential={essential}
-            placeholder="Write a campaign title"
-            inputType="text"
-            value={form.title}
-            handleChange={(e) => {
-              handleFormFieldChange("title", e);
-            }}
-          />
-        </div>
-
-        <FormField
-          labelName={"Story"}
-          essential={essential}
-          placeholder="Write your story"
-          isTextArea
-          value={form.description}
-          handleChange={(e) => {
-            handleFormFieldChange("description", e);
-          }}
-        />
-
-        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
-          {/* <img
-            src={money}
-            alt="money_icon"
-            className="w-[40px] h-[40px] ml-[10px] object-contain animate-pulse"
-          /> */}
-          <div className="ml-[10px] object-contain text-[38px] animate-pulse">
-            💸
+      {!address ? (
+        <>
+          <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">
+            Did you connect your account?
+          </h1>
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You must connect acount first! 😥
+          </p>
+        </>
+      ) : (
+        <>
+          <Toaster position="top-center" reverseOrder={false} />
+          {isLoading && <Loader />}
+          <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
+            <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white animate-pulse">
+              Start a Campaign 🚀
+            </h1>
           </div>
-          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[15px] animate-pulse my-auto leading-relaxed">
-            You will get {hundred} of the raised amount!
-          </h4>
-        </div>
 
-        <div className="flex flex-wrap gap-[40px]">
-          <FormField
-            labelName={"Goal"}
-            essential={essential}
-            placeholder="ETH 0.50"
-            inputType="number"
-            value={form.target}
-            handleChange={(e) => {
-              handleFormFieldChange("target", e);
-            }}
-          />
-          <FormField
-            labelName={"End Date"}
-            essential={essential}
-            placeholder="Select End Date"
-            inputType="date"
-            value={form.deadline}
-            handleChange={(e) => {
-              handleFormFieldChange("deadline", e);
-            }}
-          />
-        </div>
+          <form
+            onSubmit={handleSubmit}
+            className="w-full mt-[65px] flex flex-col gap-[30px]"
+          >
+            <div className="flex flex-wrap gap-[40px]">
+              <FormField
+                labelName={"Your Name"}
+                essential={essential}
+                placeholder="Write your name"
+                inputType="text"
+                value={form.name}
+                handleChange={(e) => {
+                  handleFormFieldChange("name", e);
+                }}
+              />
+              <FormField
+                labelName={"Campaign Title"}
+                essential={essential}
+                placeholder="Write a campaign title"
+                inputType="text"
+                value={form.title}
+                handleChange={(e) => {
+                  handleFormFieldChange("title", e);
+                }}
+              />
+            </div>
 
-        <FormField
-          labelName={"Campaign image"}
-          essential={essential}
-          placeholder="Place image URL of your campaign"
-          inputType="url"
-          value={form.image}
-          handleChange={(e) => {
-            handleFormFieldChange("image", e);
-          }}
-        />
+            <FormField
+              labelName={"Story"}
+              essential={essential}
+              placeholder="Write your story"
+              isTextArea
+              value={form.description}
+              handleChange={(e) => {
+                handleFormFieldChange("description", e);
+              }}
+            />
 
-        <div className="flex justify-center items-center mt-[20px]">
-          <CustomButton
-            btnType="submit"
-            title="Submit new campaign"
-            styles="bg-[#1dc071]"
-          />
-        </div>
-      </form>
+            <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+              <div className="ml-[10px] object-contain text-[38px] animate-pulse">
+                💸
+              </div>
+              <h4 className="font-epilogue font-bold text-[25px] text-white ml-[15px] animate-pulse my-auto leading-relaxed">
+                You will get {hundred} of the raised amount!
+              </h4>
+            </div>
+
+            <div className="flex flex-wrap gap-[40px]">
+              <FormField
+                labelName={"Goal"}
+                essential={essential}
+                placeholder="ETH 0.50"
+                inputType="number"
+                value={form.target}
+                handleChange={(e) => {
+                  handleFormFieldChange("target", e);
+                }}
+              />
+              <FormField
+                labelName={"End Date"}
+                essential={essential}
+                placeholder="Select End Date"
+                inputType="date"
+                value={form.deadline}
+                handleChange={(e) => {
+                  handleFormFieldChange("deadline", e);
+                }}
+              />
+            </div>
+
+            <FormField
+              labelName={"Campaign image"}
+              essential={essential}
+              placeholder="Place image URL of your campaign"
+              inputType="url"
+              value={form.image}
+              handleChange={(e) => {
+                handleFormFieldChange("image", e);
+              }}
+            />
+
+            <div className="flex justify-center items-center mt-[20px]">
+              <CustomButton
+                btnType="submit"
+                title="Submit new campaign"
+                styles="bg-[#1dc071]"
+              />
+            </div>
+          </form>
+        </>
+      )}
     </div>
   );
 };

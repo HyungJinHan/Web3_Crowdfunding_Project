@@ -22,11 +22,24 @@ const Profile = () => {
   }, [address, contract]);
 
   return (
-    <DisplayCampaigns
-      title="Your Campaigns"
-      isLoading={isLoading}
-      campaigns={campaigns}
-    />
+    <div>
+      {!address ? (
+        <>
+          <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">
+            Did you connect your account?
+          </h1>
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You must connect acount first! 😥
+          </p>
+        </>
+      ) : (
+        <DisplayCampaigns
+          title="Your Campaigns"
+          isLoading={isLoading}
+          campaigns={campaigns}
+        />
+      )}
+    </div>
   );
 };
 
