@@ -55,7 +55,7 @@
   <br>
 
   <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white">&nbsp;
-  <img width='145px' src="./client/src/assets/metamask.png">
+  <img width='145px' src="./client/src/assets/metamaskLogo.png">
 
 <br><br>
 
