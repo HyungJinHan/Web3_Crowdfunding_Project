@@ -35,12 +35,12 @@ const Navbar = () => {
           btnType="button"
           title={address ? "Create a Campaign" : "Connect"}
           styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
-          handleClick={() => {
+          handleClick={async () => {
             if (address) {
               navigate("create-campaign");
             } else {
-              connect();
-              toast.success("Your account connect, Welcome!", {
+              await connect();
+              await toast.success("Your account connect, Welcome!", {
                 style: {
                   background: "#1dc071", // #8c6dfd
                   color: "white",
