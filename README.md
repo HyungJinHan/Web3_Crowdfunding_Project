@@ -57,3 +57,55 @@
   <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white">
 
 <br><br>
+
+# 2. 프로젝트 상세 내용
+
+<div align='center'>
+
+| Main (Not connected)                                       |
+| ---------------------------------------------------------- |
+| <img src="./client/src/assets/gif/pcMainNotConnected.gif"> |
+
+<br>
+
+| Connect Account                                   |
+| ------------------------------------------------- |
+| <img src="./client/src/assets/gif/pcConnect.gif"> |
+
+<br>
+
+| Create Campaign                                          |
+| -------------------------------------------------------- |
+| <img src="./client/src/assets/gif/pcCreateCampaign.gif"> |
+
+<br>
+
+| My Campaign / Campaign Detail                              |
+| ---------------------------------------------------------- |
+| <img src="./client/src/assets/gif/pcMyCampaignDetail.gif"> |
+
+<br>
+
+| Donate                                           |
+| ------------------------------------------------ |
+| <img src="./client/src/assets/gif/pcDonate.gif"> |
+
+<br>
+
+| Main (Tablet)                                   |
+| ----------------------------------------------- |
+| <img src="./client/src/assets/gif/tabMain.gif"> |
+
+<br>
+
+| Create Campaign (Tablet)                                  |
+| --------------------------------------------------------- |
+| <img src="./client/src/assets/gif/tabCreateCampaign.gif"> |
+
+<br>
+
+| Main (Mobile) / Create Campaign (Mobile)                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="./client/src/assets/gif/mobileMain.gif">&nbsp;&nbsp;&nbsp;&nbsp;<img src="./client/src/assets/gif/mobileCreateCampaign.gif"> |
+
+</div>
