@@ -5,10 +5,6 @@
 
 <div align='center'>
 
-### `React`와 `Vite`를 기반으로 `thirdweb`을 활용한 다양한 캠페인 `Crowdfunding` 사이트입니다.
-
-<br>
-
 <a href='https://web3-crowdfunding-project-two.vercel.app/' target="_blank">
 <img width='50%' src="./client/src/assets/crowdFunding.png">
 </a>
@@ -16,6 +12,14 @@
 <br>
 
 ### ▲ **이미지 클릭으로 `thirdweb Crowdfunding` 사이트로 이동** ▲
+
+</div>
+
+<br>
+
+<div align='center'>
+
+### `React`와 `Vite`를 기반으로 `thirdweb`을 활용한 다양한 캠페인 `Crowdfunding` 사이트입니다.
 
 </div>
 
