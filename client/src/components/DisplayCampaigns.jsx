@@ -11,7 +11,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   const handleNavigate = (campaign) => {
     const remainingDays = daysLeft(campaign.deadline);
 
-    if (parseInt(remainingDays) === 0) {
+    if (parseInt(remainingDays) <= 0) {
       toast.error("This campaign is closed.", {
         style: {
           background: "#8c6dfd", //#1dc071
